@@ -21,5 +21,11 @@ This app fully provide from MusixMatch API, you can read documentation at <a hre
 
 ## Feature :
 
+|      Feature       |     Status    |          Note        |
+|--------------------|---------------|----------------------|
+| API Note           |     Done ✅   |      musixmatch API  |
+| Webpack conf dev   |     Done ✅   |           -          |
+| Webpack conf prod  |     Done ✅   |           -          |
+
 
 #### If you want to know more and interest to contribute this project call me +6283813528285 (whatsapp)

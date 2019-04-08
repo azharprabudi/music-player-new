@@ -64,6 +64,10 @@ module.exports = {
       })
     ]
   },
+  resolve: {
+    "@components": path.resolve(__dirname, "../src/components"),
+    "@pages": path.resolve(__dirname, "../src/pages")
+  },
   plugins: [
     new webpack.SourceMapDevToolPlugin({
       publicPath: location.PUBLIC_PATH,

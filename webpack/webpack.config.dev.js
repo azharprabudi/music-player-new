@@ -62,6 +62,10 @@ module.exports = {
     host: "localhost",
     port: config.DEV_PORT
   },
+  resolve: {
+    "@components": path.resolve(__dirname, "../src/components"),
+    "@pages": path.resolve(__dirname, "../src/pages")
+  },
   plugins: [
     new CircularDependencyPlugin({
       exclude: /node_modules/,

@@ -4,6 +4,6 @@ import { createEpicMiddleware } from "redux-observable";
 
 const middlewares = applyMiddleware(createEpicMiddleware());
 
-export default (process.env.MUSIC_PLAYER_NODE_ENV == "development"
+export default (process.env.MUSIC_PLAYER_NODE_ENV === "development"
   ? composeWithDevTools(middlewares)
   : middlewares);

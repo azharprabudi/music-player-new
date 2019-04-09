@@ -1,5 +1,5 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import Template from "@components/template";
+import Homepage from "@pages/homepage";
 
-ReactDOM.render(<Template />, document.getElementById("music-player"));
+ReactDOM.render(<Homepage />, document.getElementById("music-player"));

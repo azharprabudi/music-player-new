@@ -1,6 +1,5 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import Template from "@components/template";
 
-const App = () => <h1>helo</h1>;
-
-ReactDOM.render(<App />, document.getElementById("music-player"));
+ReactDOM.render(<Template />, document.getElementById("music-player"));

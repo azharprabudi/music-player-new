@@ -6,6 +6,7 @@ const CleanWebpackPlugin = require("clean-webpack-plugin");
 const CircularDependencyPlugin = require("circular-dependency-plugin");
 const config = require("./utils/config");
 const location = require("./utils/location");
+const { generateResolveModule } = require("./utils/helper");
 
 module.exports = {
   mode: config.DEVELOPMENT,
@@ -63,8 +64,7 @@ module.exports = {
     port: config.DEV_PORT
   },
   resolve: {
-    "@components": path.resolve(__dirname, "../src/components"),
-    "@pages": path.resolve(__dirname, "../src/pages")
+    alias: generateResolveModule()
   },
   plugins: [
     new CircularDependencyPlugin({

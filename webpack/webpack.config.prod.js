@@ -7,6 +7,7 @@ const CircularDependencyPlugin = require("circular-dependency-plugin");
 const UglifyJSPlugin = require("uglifyjs-webpack-plugin");
 const config = require("./utils/config");
 const location = require("./utils/location");
+const { generateResolveModule } = require("./utils/helper");
 
 module.exports = {
   mode: config.PRODUCTION,
@@ -65,8 +66,7 @@ module.exports = {
     ]
   },
   resolve: {
-    "@components": path.resolve(__dirname, "../src/components"),
-    "@pages": path.resolve(__dirname, "../src/pages")
+    alias: generateResolveModule()
   },
   plugins: [
     new webpack.SourceMapDevToolPlugin({

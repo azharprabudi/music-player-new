@@ -4,8 +4,6 @@ import { Provider } from "react-redux";
 import Homepage from "@pages/homepage";
 import makeStore from "@utils/redux";
 
-console.log(makeStore);
-
 const App = () => (
   <Provider store={makeStore()}>
     <Homepage />

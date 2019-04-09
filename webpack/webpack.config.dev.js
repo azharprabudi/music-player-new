@@ -78,10 +78,10 @@ module.exports = {
     }),
     new CleanWebpackPlugin(),
     new webpack.DefinePlugin({
-      "process.env": {
+      "process.env": JSON.stringify({
         MUSIC_PLAYER_NODE_ENV: config.DEVELOPMENT,
         MUSIC_PLAYER_NODE_PORT: config.DEV_PORT
-      }
+      })
     }),
     new webpack.HotModuleReplacementPlugin(),
     new HTMLWebpackPlugin({

@@ -61,7 +61,8 @@ module.exports = {
     hot: true,
     inline: true,
     host: "localhost",
-    port: config.DEV_PORT
+    port: config.DEV_PORT,
+    historyApiFallback: true
   },
   resolve: {
     alias: generateResolveModule()

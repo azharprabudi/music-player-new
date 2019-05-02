@@ -3,7 +3,7 @@ import reducers from "@utils/reducers";
 import middlewares from "@utils/middlewares";
 
 const makeStore = () => {
-  const store = createStore(reducers, null, middlewares);
+  const store = createStore(reducers, middlewares);
 
   return store;
 };

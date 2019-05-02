@@ -1,3 +1,5 @@
 import { combineReducers } from "redux";
 
-export default combineReducers({});
+export default combineReducers({
+  examples: (state = { name: "" }, _) => state
+});

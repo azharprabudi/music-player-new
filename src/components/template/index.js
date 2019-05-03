@@ -6,10 +6,10 @@ import "@styles/template.styl";
 class Template extends PureComponent {
   render() {
     return (
-      <Fragment>
+      <div className="container">
         <SideBar />
-        {this.props.children}
-      </Fragment>
+        <div className="content">{this.props.children}</div>
+      </div>
     );
   }
 }

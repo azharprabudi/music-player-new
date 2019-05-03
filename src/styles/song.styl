@@ -1,0 +1,36 @@
+.search {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.search__icon {
+    margin-right: 12px;
+    color: #ccc;
+}
+
+.search__input {
+    flex: 1;
+    height: 36px;
+    display: flex;
+    outline: none;
+    border: 0px;
+    background-color: transparent;
+    font-size: 14px;
+    color: #ccc;
+}
+
+.search__dropdown {
+    top: 52px;
+    width: 75%;
+    max-height: 220px; 
+    z-index 999;
+    display: flex;
+    border-radius: 5px;
+    position: absolute;
+    background-color: white;
+    padding: 0px 12px;
+    flex-direction: column;
+    overflow: hidden;
+    overflow-y: scroll;
+}

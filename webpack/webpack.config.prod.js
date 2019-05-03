@@ -87,7 +87,8 @@ module.exports = {
       "process.env": JSON.stringify({
         MUSIC_PLAYER_NODE_ENV: config.PRODUCTION,
         MUSIC_PLAYER_NODE_PORT: config.DEV_PORT,
-        MUSIC_PLAYER_BASE_URL: config.BASE_URL
+        MUSIC_PLAYER_BASE_URL: config.BASE_URL,
+        MUSIC_PLAYER_API_KEY: config.API_KEY
       })
     }),
     new webpack.HotModuleReplacementPlugin(),

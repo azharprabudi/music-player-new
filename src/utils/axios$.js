@@ -1,10 +1,10 @@
 import { Observable } from "rxjs";
-import axios, { CancelToken } from "axios";
+import axios from "axios";
 
 const axios$ = ({ url, method, headers, params, body }) =>
   Observable.create(async observer => {
     try {
-      const _source = CancelToken.source();
+      const _source = axios.CancelToken.source();
       const _axios = axios.create({
         url,
         method,
@@ -18,10 +18,10 @@ const axios$ = ({ url, method, headers, params, body }) =>
 
       const _resp = await _axios[method](url);
 
-      observer.next(_resp);
+      observer.next(_resp.data);
       observer.complete();
     } catch (e) {
-      console.log(observer);
+      observer.error(e);
     }
 
     return () => _source.cancel();

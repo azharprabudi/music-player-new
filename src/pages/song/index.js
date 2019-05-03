@@ -1,9 +1,17 @@
-import React from "react";
+import React, { PureComponent } from "react";
 
-const SongPage = () => (
-  <div className="container">
-    <h1>Song page</h1>
-  </div>
-);
+class SongPage extends PureComponent {
+  componentDidMount() {
+    this.props.fetchPopularSongs();
+  }
+
+  render() {
+    return (
+      <div>
+        <h1>Song Page</h1>
+      </div>
+    );
+  }
+}
 
 export default SongPage;

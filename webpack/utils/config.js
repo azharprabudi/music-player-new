@@ -3,6 +3,6 @@ module.exports = {
   PRODUCTION: "production",
   DEVELOPMENT: "development",
   BASE_URL:
-    "https://cors-anywhere.herokuapp.com/https://api.musixmatch.com/ws/1.1/",
+    "https://cors-anywhere.herokuapp.com/https://api.musixmatch.com/ws/1.1",
   API_KEY: ""
 };

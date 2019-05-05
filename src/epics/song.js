@@ -11,12 +11,13 @@ import {
 import { ajax } from "rxjs/ajax";
 import { ofType } from "redux-observable";
 import {
+  SEARCH_SONG,
+  SUCCESS_SEARCH_SONG,
+  FAILED_SEARCH_SONG,
   FETCH_POPULAR_SONGS,
   SUCCESS_FETCH_POPULAR_SONGS
 } from "@actions/song";
-import { SEARCH_SONG } from "@actions/song";
 import musixMatchErrorHandler$ from "@utils/musix-match-error-handler$";
-import { SUCCESS_SEARCH_SONG, FAILED_SEARCH_SONG } from "../actions/song";
 import { timer } from "rxjs";
 
 export const fetchPopularSongs$ = action$ =>

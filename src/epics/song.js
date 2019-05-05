@@ -25,7 +25,7 @@ export const fetchPopularSongs$ = action$ =>
     ofType(FETCH_POPULAR_SONGS),
     concatMap(() => {
       const url = `${process.env.MUSIC_PLAYER_BASE_URL}/chart.tracks.get`;
-      const params = `?country=${id}&chart_name=${top}&callback=${jsonp_callback}&apikey=${
+      const params = `?country=${id}&chart_name=${top}&apikey=${
         process.env.MUSIC_PLAYER_API_KEY
       }`;
 

@@ -1,5 +1,6 @@
 import { combineReducers } from "redux";
+import SongReducer from "@reducers/song";
 
 export default combineReducers({
-  examples: (state = { name: "" }, _) => state
+  song: SongReducer
 });

@@ -3,11 +3,11 @@ import ReactDOM from "react-dom";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { Provider } from "react-redux";
 import Template from "@components/template";
-import makeStore from "@utils/redux";
+import store from "@utils/redux";
 import Routes from "@navigation/routes";
 
 const App = () => (
-  <Provider store={makeStore()}>
+  <Provider store={store}>
     <Router>
       <Template>
         <Switch>

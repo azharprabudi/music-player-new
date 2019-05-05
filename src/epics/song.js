@@ -1,15 +1,12 @@
 import {
   concatMap,
   map,
-  debounce,
   debounceTime,
   distinctUntilChanged,
-  filter,
-  tap,
-  mapTo,
   switchMap,
-  takeUntil,
-  mergeMap
+  catchError,
+  retryWhen,
+  delayWhen
 } from "rxjs/operators";
 import { ajax } from "rxjs/ajax";
 import { ofType } from "redux-observable";
@@ -17,8 +14,10 @@ import {
   FETCH_POPULAR_SONGS,
   SUCCESS_FETCH_POPULAR_SONGS
 } from "@actions/song";
-import { SEARCH_SONG } from "../actions/song";
-import { Observable, of } from "rxjs";
+import { SEARCH_SONG } from "@actions/song";
+import musixMatchErrorHandler$ from "@utils/musix-match-error-handler$";
+import { SUCCESS_SEARCH_SONG, FAILED_SEARCH_SONG } from "../actions/song";
+import { timer } from "rxjs";
 
 export const fetchPopularSongs$ = action$ =>
   action$.pipe(
@@ -34,6 +33,8 @@ export const fetchPopularSongs$ = action$ =>
         Accept: "application/json"
       });
     }),
+    musixMatchErrorHandler$(),
+    retryWhen(err => err.pipe(delayWhen(_ => timer(3000)))),
     map(({ message: { body: { track_list } } }) => ({
       type: SUCCESS_FETCH_POPULAR_SONGS,
       payload: track_list
@@ -44,13 +45,7 @@ export const searchSong$ = action$ =>
   action$.pipe(
     ofType(SEARCH_SONG),
     debounceTime(250),
-    filter(({ payload }) => payload.length > 4),
     distinctUntilChanged(),
-    mergeMap(() =>
-      of({
-        type: "kondel"
-      })
-    ),
     switchMap(({ payload }) => {
       const url = `${process.env.MUSIC_PLAYER_BASE_URL}/track.search`;
       const params = `?q=${payload}&apikey=${
@@ -62,10 +57,12 @@ export const searchSong$ = action$ =>
         Accept: "application/json"
       });
     }),
-    map(resp => {
-      console.log("resp");
-      return {
-        type: "test"
-      };
-    })
+    musixMatchErrorHandler$(),
+    catchError(_ => ({
+      type: FAILED_SEARCH_SONG
+    })),
+    map(({ response: { message: { body } } }) => ({
+      type: SUCCESS_SEARCH_SONG,
+      payload: body.track_list
+    }))
   );

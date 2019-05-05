@@ -29,8 +29,36 @@
     border-radius: 5px;
     position: absolute;
     background-color: white;
-    padding: 0px 12px;
     flex-direction: column;
     overflow: hidden;
     overflow-y: scroll;
+}
+
+.search__dropdown__loading {
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.search__dropdown__item {
+    padding: 12px 12px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.search__dropdown__item:hover {
+    background-color: #5DC7D1;
+}
+
+.search__dropdown__item__title {
+    font-size: 16px;
+    color: black;
+    margin: 6px 0px !important;
+}
+
+.search__dropdown__item__subtitle {
+    color: #555;
+    font-style: italic;
+    margin: 6px 0px !important;    
 }
